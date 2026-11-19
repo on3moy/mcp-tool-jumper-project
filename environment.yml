@@ -1,0 +1,17 @@
+# The conda environment for the MCP Tool Jumper team project.
+#
+#   conda env create -f environment.yml     # once: creates an environment called "tool-jumper"
+#   conda activate tool-jumper              # every time you open a new terminal
+#
+# Works with Anaconda or Miniconda (on Windows, use the "Anaconda Prompt").
+# To start over: conda env remove -n tool-jumper, then create it again.
+name: tool-jumper
+channels:
+  - conda-forge  # the community channel: free to use, no extra terms to accept
+dependencies:
+  - python=3.12
+  - pip
+  - jupyterlab   # to open learn_annotations.ipynb
+  - ipykernel
+  - pip:
+      - "mcp>=2.3,<3"  # the MCP library (installed with pip); it also brings pydantic (Field)

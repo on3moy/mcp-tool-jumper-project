@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.ruff_cache/
+.mypy_cache/
+# uv is the instructor's tool; students use conda (environment.yml).
+uv.lock
+.python-version

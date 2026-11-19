@@ -1,0 +1,36 @@
+# Students: you do not need this file. Set up with conda instead (see README.md and
+# environment.yml). It is used by the instructor's tools (uv) and the code checker (ruff).
+
+[project]
+name = "mcp-tool-jumper-project"
+version = "2.0.0"
+description = "Team project: write the MCP tools an AI model uses to play a platformer."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=2.3,<3",  # the MCP library; it also brings pydantic (Field)
+]
+
+[dependency-groups]
+dev = [
+    "jupyterlab",
+    "ipykernel",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "D"]
+ignore = ["D203", "D213"]
+
+[tool.ruff.lint.isort]
+# Sort the kit's flat modules like the instructor's copy does, so check_tools.py stays identical.
+known-third-party = ["robot", "toolbox"]
+
+[tool.ruff.lint.per-file-ignores]
+# Notebook cells are a teaching script, not a module.
+"*.ipynb" = ["D100", "D103", "E402", "I001"]
+# The starter keeps a few imports the TODOs will need.
+"team_tools/*" = ["F401"]
